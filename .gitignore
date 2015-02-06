@@ -1,0 +1,18 @@
+
+# /
+/*.iml
+/target
+/.settings
+/.codepro
+/.project
+/NPCC.ipr
+/NPCC.iws
+/.classpath
+/.idea
+/diagrams
+/atlassian-ide-plugin.xml
+/*.ipr
+/*.iws
+/.checkstyle
+/data
+
