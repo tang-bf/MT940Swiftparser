@@ -4,8 +4,9 @@ Created with the parser generator ANLTR4 to read and update swift mt940 messages
 
 ## Why another parser?
 
-I created the parser for a special purpose. I wanted to parse the raw data, analyze it and rewrite the customer references.
-Others parser libraries didn't support this scenario.
+
+I wanted to parse swift raw data, analyze it and rewrite the customer references.
+I used the input format from Commerzbank, a german bank. Others parser libraries didn't support the reference format.
 
 ## ANTLR4
 
