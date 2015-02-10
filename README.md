@@ -38,5 +38,5 @@ walker.walk( listener, parseTree );
  * If you use the SwiftInputListener then you can fetch the transaction collection
  */
 SwiftMt940TransactionCollection collection = listener.getCollection();
-LOGGER.info( collection );
+System.out.println( collection );
 ```

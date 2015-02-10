@@ -7,8 +7,6 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
 
 /**
@@ -18,8 +16,6 @@ import org.junit.Test;
  */
 public class ParserInitExampleTest
 {
-    private static final Logger LOGGER = LogManager.getLogger( ParserInitExampleTest.class );
-
     @Test
     public void initParser()
     {
@@ -46,7 +42,7 @@ public class ParserInitExampleTest
          * If you use the SwiftInputListener then you can fetch the transaction collection
          */
         SwiftMt940TransactionCollection collection = listener.getCollection();
-        LOGGER.info( collection );
+        System.out.println( collection );
 
     }
 }
