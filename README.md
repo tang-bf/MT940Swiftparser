@@ -14,7 +14,7 @@ http://www.antlr.org
 
 ## Initiate the parser
 
-~~~
+```java
 /**
  * Initialize the input stream and the parser
  */
@@ -39,4 +39,4 @@ walker.walk( listener, parseTree );
  */
 SwiftMt940TransactionCollection collection = listener.getCollection();
 LOGGER.info( collection );
-~~~
+```
