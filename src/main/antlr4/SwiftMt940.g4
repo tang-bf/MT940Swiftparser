@@ -68,7 +68,7 @@ references: gcode?
             customerReference?      /*26*/
             customerReference?      /*27*/
             customerReference?      /*28*/
-            elliReference?          /*29*/
+            customerReference?      /*29*/
             bic?                    /*30*/
             iban?                   /*31*/
             name1?                  /*32*/

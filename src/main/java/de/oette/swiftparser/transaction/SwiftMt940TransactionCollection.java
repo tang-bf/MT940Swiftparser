@@ -58,4 +58,6 @@ public interface SwiftMt940TransactionCollection extends Collection<SwiftMt940Tr
     String getAccountWithCountry();
 
     String getAccountSuffix( boolean includeCountry );
+
+    String getCurrency();
 }

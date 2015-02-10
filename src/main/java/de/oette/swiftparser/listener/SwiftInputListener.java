@@ -1,6 +1,7 @@
 package de.oette.swiftparser.listener;
 
 import de.oette.swiftparser.SwiftMt940Parser;
+import de.oette.swiftparser.transaction.SwiftMt940TransactionCollection;
 import de.oette.swiftparser.transaction.SwiftMt940TransactionCollectionImpl;
 import de.oette.swiftparser.transaction.SwiftMt940TransactionImpl;
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -16,6 +17,11 @@ public class SwiftInputListener extends de.oette.swiftparser.SwiftMt940BaseListe
 
     private SwiftMt940TransactionCollectionImpl swiftMt4TransactionCollection;
     private SwiftMt940TransactionImpl currentTransaction;
+
+    public SwiftInputListener()
+    {
+        swiftMt4TransactionCollection = new SwiftMt940TransactionCollectionImpl();
+    }
 
     public SwiftInputListener( String rawData )
     {
@@ -65,12 +71,16 @@ public class SwiftInputListener extends de.oette.swiftparser.SwiftMt940BaseListe
         if ( swiftMt4TransactionCollection.getCurrency() != null )
         {
             currencyUnit = CurrencyUnit.of( swiftMt4TransactionCollection.getCurrency() );
+            BigDecimal amount = moneyMajorToBigDecimal( moneyContext.moneyMajor() )
+                    .add( moneyMinorToBigDecimal( moneyContext.moneyMinor() ) );
+
+            return Money.of( currencyUnit, amount );
+        }
+        else
+        {
+            return null;
         }
 
-        BigDecimal amount = moneyMajorToBigDecimal( moneyContext.moneyMajor() )
-                .add( moneyMinorToBigDecimal( moneyContext.moneyMinor() ) );
-
-        return Money.of( currencyUnit, amount );
     }
 
     private BigDecimal moneyMinorToBigDecimal( SwiftMt940Parser.MoneyMinorContext minorAmountContext )
@@ -149,7 +159,7 @@ public class SwiftInputListener extends de.oette.swiftparser.SwiftMt940BaseListe
         }
     }
 
-    public SwiftMt940TransactionCollectionImpl getCollection()
+    public SwiftMt940TransactionCollection getCollection()
     {
         return swiftMt4TransactionCollection;
     }

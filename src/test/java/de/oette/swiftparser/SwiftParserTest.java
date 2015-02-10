@@ -2,7 +2,7 @@ package de.oette.swiftparser;
 
 import de.oette.swiftparser.listener.SwiftInputListener;
 import de.oette.swiftparser.transaction.SwiftMt940Transaction;
-import de.oette.swiftparser.transaction.SwiftMt940TransactionCollectionImpl;
+import de.oette.swiftparser.transaction.SwiftMt940TransactionCollection;
 import de.oette.swiftparser.util.ParserUtils;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -26,7 +26,7 @@ public class SwiftParserTest
     public void testInputListener() throws IOException
     {
         SwiftInputListener classUnderTest = prepareParser( "classpath:swift/swiftReaderTest.txt" );
-        SwiftMt940TransactionCollectionImpl collection = classUnderTest.getCollection();
+        SwiftMt940TransactionCollection collection = classUnderTest.getCollection();
         LOGGER.info( collection );
 
         SwiftMt940Transaction[] transactions = collection.toArray( new SwiftMt940Transaction[collection.size()] );

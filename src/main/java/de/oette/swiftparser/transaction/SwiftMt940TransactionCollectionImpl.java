@@ -23,6 +23,11 @@ public class SwiftMt940TransactionCollectionImpl extends AbstractCollection<Swif
     private String account;
     private String fullAccount;
 
+    public SwiftMt940TransactionCollectionImpl()
+    {
+
+    }
+
     public SwiftMt940TransactionCollectionImpl( String rawDataInput )
     {
         this.rawDataInput = rawDataInput;
