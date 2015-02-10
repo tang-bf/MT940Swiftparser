@@ -40,3 +40,23 @@ walker.walk( listener, parseTree );
 SwiftMt940TransactionCollection collection = listener.getCollection();
 System.out.println( collection );
 ```
+
+You should get the following output
+
+```
+SwiftMt940TransactionCollectionImpl
+{
+		SwiftMt940TransactionImpl
+		{
+			positionInSwiftBlock=0
+			gCode=833
+			additionalReference=null
+			bic=null
+			iban=null
+			name=null
+			customerReference=[ACMS W/100 2076024 00]
+			amount=null
+		}
+
+}
+```
