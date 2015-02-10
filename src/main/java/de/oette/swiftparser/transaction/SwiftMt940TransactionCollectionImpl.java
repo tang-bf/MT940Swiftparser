@@ -1,6 +1,7 @@
 package de.oette.swiftparser.transaction;
 
-import org.springframework.util.StringUtils;
+
+import org.apache.commons.lang.StringUtils;
 
 import java.util.AbstractCollection;
 import java.util.ArrayList;
@@ -66,13 +67,13 @@ public class SwiftMt940TransactionCollectionImpl extends AbstractCollection<Swif
     public String toString()
     {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append( "SwiftMt940TransactionCollectionImpl" );
+        stringBuilder.append( "SwiftMt940TransactionCollectionImpl\n" );
+        stringBuilder.append( "{\n" );
         for ( SwiftMt940Transaction transaction : list )
         {
-            stringBuilder.append( " {" );
-            stringBuilder.append( transaction.toString() );
-            stringBuilder.append( "}, " );
+            stringBuilder.append( transaction.toString( 2 ) ).append( "\n" );
         }
+        stringBuilder.append( "}\n" );
         return stringBuilder.toString();
     }
 

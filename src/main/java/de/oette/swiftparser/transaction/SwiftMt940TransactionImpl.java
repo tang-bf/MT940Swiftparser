@@ -212,15 +212,31 @@ public class SwiftMt940TransactionImpl implements SwiftMt940Transaction
     @Override
     public String toString()
     {
-        return "SwiftMt940TransactionImpl{" +
-                "positionInSwiftBlock=" + positionInSwiftBlock +
-                ", gCode='" + gCode + '\'' +
-                ", additionalReference='" + additionalReference + '\'' +
-                ", bic='" + bic + '\'' +
-                ", iban='" + iban + '\'' +
-                ", name='" + name + '\'' +
-                ", customerReference=" + customerReference +
-                ", amount=" + amount +
-                '}';
+        return toString( 0 );
+    }
+
+    @Override
+    public String toString( int indent )
+    {
+        String indentation = "";
+        for ( int i = 0; i < indent; i++ )
+        {
+            indentation += "\t";
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append( indentation ).append( "SwiftMt940TransactionImpl" ).append( "\n" );
+        stringBuilder.append( indentation ).append( "{" ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "positionInSwiftBlock=" ).append( positionInSwiftBlock ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "gCode=" ).append( gCode ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "additionalReference=" ).append( additionalReference ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "bic=" ).append( bic ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "iban=" ).append( iban ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "name=" ).append( name ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "customerReference=" ).append( customerReference ).append( "\n" );
+        stringBuilder.append( indentation ).append( "\t" ).append( "amount=" ).append( amount ).append( "\n" );
+        stringBuilder.append( indentation ).append( "}" ).append( "\n" );
+
+        return stringBuilder.toString();
     }
 }

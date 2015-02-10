@@ -81,4 +81,12 @@ public interface SwiftMt940Transaction
     int getPositionInSwiftBlock();
 
     String getName();
+
+    /**
+     * Customized String Method
+     *
+     * @param indent tab indent level
+     * @return ...
+     */
+    String toString( int indent );
 }
